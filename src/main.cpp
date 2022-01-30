@@ -173,6 +173,9 @@ public:
 			std::string rule_str = std::string(1, rule.first) + "=" + rule.second;
 			strcpy(mRuleBuffers[i++], rule_str.c_str());
 		}
+        while(i<NUM_RULES) {
+            strcpy(mRuleBuffers[i++], "");
+        }
 	}
 
 	void update() {
@@ -220,7 +223,7 @@ public:
 
 		for (size_t i = 0; i < NUM_RULES; i++) {
 			char buf[4];
-			std::snprintf(buf, sizeof(buf), "##%i", i);
+			std::snprintf(buf, sizeof(buf), "##%zu", i);
 			ImGui::InputText(buf, mRuleBuffers[i], BUFSIZE);
 		}
 
@@ -270,10 +273,10 @@ public:
 			return;
 		}
 
-		ImGui::Text(std::string(std::to_string(mVertices.getVertexCount()) + " Vertices").c_str());
+		ImGui::Text("%s", std::string(std::to_string(mVertices.getVertexCount()) + " Vertices").c_str());
 
 		if (error)
-			ImGui::TextColored({ 1.f, 0, 0, 1.f }, error_msg.c_str());
+			ImGui::TextColored({ 1.f, 0, 0, 1.f }, "%s", error_msg.c_str());
 
 		static int item_current = 0;
 		ImGui::Combo("##combo", &item_current, DEMO_NAMES, IM_ARRAYSIZE(DEMO_NAMES));
@@ -293,7 +296,7 @@ public:
 		vtest.append({ {0, 0}, sf::Color::Red });
 		vtest.append({ {10, 0}, sf::Color::Red });
 		win.draw(vtest);
-		std::printf("%u %f\n", color_palette[0].b, mVertices[1].position.y);
+		// std::printf("%u %f\n", color_palette[0].b, mVertices[1].position.y);
 
 
 		win.draw(mVertices);
@@ -411,7 +414,7 @@ void zoomViewAt(sf::Vector2i pixel, sf::View& view, sf::RenderWindow& window, fl
 
 
 int main() {
-	sf::RenderWindow window(sf::VideoMode(1600, 900), "LSystem", sf::Style::Default);
+	sf::RenderWindow window(sf::VideoMode(1600, 900), "LSystem");
 	window.setFramerateLimit(60);
 
 	ImGui::SFML::Init(window);
