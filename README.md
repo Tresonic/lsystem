@@ -1,4 +1,4 @@
-lsystem visualizer(extremely messy)
+lsystem visualizer (extremely messy)
 ==========================
 
 Building
