@@ -1,4 +1,4 @@
-lsystem visualizer
+lsystem visualizer [![Build&Release](https://github.com/Tresonic/lsystem/actions/workflows/build.yml/badge.svg)](https://github.com/Tresonic/lsystem/actions/workflows/build.yml)
 ==========================
 warning: extremely messy code
 ![screenshot](https://user-images.githubusercontent.com/37078118/151704332-a0019ede-c7d1-45c9-8507-5fe5889a1fe5.png)
