@@ -3,6 +3,8 @@ include(FetchContent)
 set(SFML_VERSION 2.5.1)
 set(IMGUI_VERSION 1.85)
 set(IMGUI_SFML_VERSION 2.3)
+set(BUILD_SHARED_LIBS OFF)
+
 
 message(STATUS "Fetching third party libraries")
 
@@ -42,6 +44,6 @@ FetchContent_MakeAvailable(imgui)
 # ImGui-SFML
 set(IMGUI_DIR ${imgui_SOURCE_DIR})
 option(IMGUI_SFML_FIND_SFML "Use find_package to find SFML" OFF)
-option(IMGUI_SFML_IMGUI_DEMO "Build imgui_demo.cpp" ON)
+option(IMGUI_SFML_IMGUI_DEMO "Build imgui_demo.cpp" OFF)
 
 FetchContent_MakeAvailable(imgui-sfml)

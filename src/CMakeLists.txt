@@ -1,4 +1,4 @@
-
+set(BUILD_SHARED_LIBS OFF)
 
 add_executable(lsystem
   main.cpp
