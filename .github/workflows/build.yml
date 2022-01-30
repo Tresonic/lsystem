@@ -52,13 +52,13 @@ jobs:
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
         
       - name: Zip Files
-        run: cd build && zip linux.zip lsystem
+        run: cd build/src && zip linux.zip lsystem && mv linux.zip ../..
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
           name: uploads
-          path: build/linux.zip
+          path: linux.zip
 
   build-windows:
     runs-on: windows-latest
@@ -75,12 +75,12 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
       
     - name: Zip Files
-      run: cd build/Release/ && powershell Compress-Archive lsystem.exe windows.zip
+      run: cd build/src/Release/ && powershell Compress-Archive lsystem.exe windows.zip && mv windows.zip ../../..
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
         name: uploads
-        path: build/Release/windows.zip
+        path: windows.zip
 
 
