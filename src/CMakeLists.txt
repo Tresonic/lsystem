@@ -2,6 +2,8 @@ set(BUILD_SHARED_LIBS OFF)
 
 add_executable(lsystem
   main.cpp
+  LSystem.cpp
+  LSystemRenderer.cpp
 )
 
 # Yep, that's it!
