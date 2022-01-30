@@ -1,5 +1,6 @@
 lsystem visualizer (extremely messy)
 ==========================
+[screenshot](https://user-images.githubusercontent.com/37078118/151704332-a0019ede-c7d1-45c9-8507-5fe5889a1fe5.png)
 
 Building
 --------
